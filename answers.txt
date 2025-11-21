@@ -1,0 +1,29 @@
+Answers
+part1:
+1. process_creation.c:
+This program uses fork() to create a new process.
+If pid == 0 it is the child, if pid > 0 it is the parent.
+So the output shows one line from the child and one from the parent, each with its own PID.
+
+2. file1.c + file2.c:
+Here the code is split into two files.
+file1.c defines hello(), and file2.c calls hello() from main().
+When we compile and link them, the linker connects the call in file2.c to the function in file1.c.
+This shows how functions in different files can work together.
+
+3. simple_program.c:
+This is a small program that just prints one line.
+We use it with ldd to see which shared libraries it needs.
+The loader later loads these libraries into memory when the program runs.
+
+Part 2: What is the job of the Linker
+The linker takes object files from the compiler and joins them into one executable.
+It matches function calls and variables across files and can also add libraries the program needs.
+In the end we get a single program that the OS can run.
+
+Part 3: What is the job of the Loader
+The loader is part of the OS and runs when we start a program.
+It loads the executable and the needed shared libraries into memory, sets up things like the stack,
+and then jumps to the start of the program so main() can run.
+
+github repo "https://github.com/AbooSalh/OS-Assignment2"
